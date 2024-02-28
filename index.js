@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const fs = require('fs')
+const fs = require('fs');
+const generateLogo = require("./lib/shapes");
 
 
 inquirer
@@ -22,8 +23,11 @@ inquirer
         }
     ])
     .then((response) => { 
-        if (response.logoText.length > 3) console.log('Logo text cannot be longer that 3 characters.')
-        else generateLogo(response)}
+        if (response.logoText.length > 3) {console.log('Logo text cannot be longer that 3 characters.')}
+        else {generateLogo(response)}}
     )
+    .catch((err) => {
+        console.log(err.message)
+    })
 
 
